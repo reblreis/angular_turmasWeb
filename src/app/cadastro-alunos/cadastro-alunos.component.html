@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- linha -->
+    <div class="row">
+        <!-- coluna -->
+        <div class="col">
+            <label>Nome do Aluno:</label>
+            <input type="text" class="form-control" formControlName="nome"/>
+            <div class="text-danger" *ngIf="f['nome'].touched && f['nome'].invalid">
+                Informe um nome de 8 a 100 caracteres.
+            </div>
+        </div>
+        <!-- coluna -->
+        <div class="col">
+            <label>Matricula:</label>
+            <input type="text" class="form-control" formControlName="matricula"/>
+            <div class="text-danger" *ngIf="f['matricula'].touched && f['matricula'].invalid">
+                Informe uma matricula válida.
+            </div>
+        </div>
+        <!-- coluna -->
+        <div class="col">
+            <label>CPF:</label>
+            <input type="text" class="form-control" formControlName="cpf"/>
+            <div class="text-danger" *ngIf="f['cpf'].touched && f['cpf'].invalid">
+                Informe um cpf válido.
+            </div>
+        </div>
+    </div>
+    <!-- linha -->
+    <div class="row mt-3">
+        <div class="col">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-outline-success btn-sm">
+                Realizar Cadastro
+            </button>
+        </div>
+    </div>
+</form>
